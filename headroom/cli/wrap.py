@@ -2827,7 +2827,7 @@ def _strip_existing_codex_headroom_provider_table(content: str) -> str:
     if not isinstance(provider, Mapping):
         return content
     del providers["headroom"]
-    return tomlkit.dumps(document)
+    return str(tomlkit.dumps(document))
 
 
 def _strip_existing_codex_memory_mcp_table(content: str) -> str:
@@ -2850,7 +2850,7 @@ def _strip_existing_codex_memory_mcp_table(content: str) -> str:
         return content
 
     del mcp_servers["headroom_memory"]
-    return tomlkit.dumps(document)
+    return str(tomlkit.dumps(document))
 
 
 def _redirect_existing_top_level_keys(content: str, port: int) -> str:
